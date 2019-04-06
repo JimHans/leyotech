@@ -1,0 +1,545 @@
+/* reset */
+body,h1,h2,h3,p,ul,ol{margin:0;padding:0;}
+ul,li,dl,dt,dd{list-style:none;margin:0;padding:0;}
+a{text-decoration:none;cursor:pointer;}
+html,body{height:100%;}
+body{font-family:"Helvetica Neue",Verdana;}
+h2,h3{font-weight:normal;font-family:"Helvetica Neue","Microsoft YaHei","SimHei";}
+
+/* html5 tags */
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
+audio,canvas,video{display:inline-block;*zoom:1;}
+
+/* function */
+.dispnone{display:none;}
+.left{float:left;_display:inline;}
+.right{float:right;_display:inline;}
+.text_center{text-align:center;}
+.clearfix {*zoom:1;}
+.clearfix:before {display:table;content:"";}
+.clearfix:after {display:table;content:"";clear:both;}
+.hide{display:none;}
+
+/* layout */
+.mail_app{background-color:#fff;overflow-x:hidden;}
+.ma_main{position:relative;width:100%;/*overflow:hidden;*/*position:static;}
+.ma_container{position:absolute;top:0;bottom:0;left:10%;width:100%;height:100%;color:#61676c;}
+.ma_1stpage{position:relative;overflow:hidden;}
+.ma_1stpage,
+.ma_2ndpage,
+.ma_footer{width:90%;max-width:1024px;*width:1024px;margin:0 auto;}
+.ma_outbox{position:relative;left:0;width:100%;top:0;z-index:1;
+	-webkit-transition:left 0.3s linear;
+	-moz-transition:left 0.3s linear;
+	-o-transition:left 0.3s linear;
+	-ms-transition:left 0.3s linear;
+	transition:left 0.3s linear;
+}
+/* 视频 */
+.play_video_link{
+	float:left;
+	_display:inline;
+	width:136px;
+	height:35px;
+	line-height:35px;
+	margin-top:16px;
+	margin-left:20px;
+	color:#5e6d7e;
+	font-size:14px;
+}
+.play_video_link span{
+	display:inline-block;
+	vertical-align:middle;
+}
+.icon_play_video{
+	width:15px;
+	height:15px;
+	background-position:-208px -64px;
+	margin-left:5px;
+	position:relative;
+	top:-1px;
+	_top:0;
+}
+#video_mask{
+	display:none;
+	position:fixed;
+	_position:absolute;
+	z-index:100;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background:#000;
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+#video_area{
+	display:none;
+	position:fixed;
+	_position:absolute;
+	z-index:101;
+	top:50%;
+	_top:54%;
+	left:50%;
+	width:960px;
+	height:592px;
+	margin-left:-480px;
+	margin-top:-300px;
+}
+#video{
+	position:relative;
+	z-index:101;
+	width:100%;
+	height:100%;
+}
+.icon_close_video{
+	position:absolute;
+	z-index:102;
+	top:-17px;
+	right:-17px;
+	width:34px;
+	height:34px;
+	background:url(../images/qqmail_app3/icon_close_video21bd63.png) no-repeat;
+	_background:url(../images/qqmail_app3/icon_close_video_ie621bd63.png) no-repeat;
+	background-image:-webkit-image-set(url(../images/qqmail_app3/icon_close_video21bd63.png) 1x,url(../images/qqmail_app3/icon_close_video_2x21bd65.png) 2x);
+}
+#video>div{
+	height:100%;
+}
+@media (max-width:1066px) {
+	#video_area{
+		width:600px;
+		height:385px;
+		margin-left:-300px;
+		margin-top:-192px;
+	}
+}
+
+/* 切换完隐藏其他tab下的内容 */
+.show_only_ios .ma_android,
+.show_only_ios .ma_ipad,
+.show_only_ios .ma_other,
+.show_only_ipad .ma_ios,
+.show_only_ipad .ma_android,
+.show_only_ipad .ma_other,
+.show_only_android .ma_ios,
+.show_only_android .ma_ipad,
+.show_only_android .ma_other,
+.show_only_other .ma_ios,
+.show_only_other .ma_ipad,
+.show_only_other .ma_android{display:none;}
+
+.disp_ios .ma_outbox{left:0%;}
+.disp_ipad .ma_outbox{left:-100%;}
+.disp_android .ma_outbox{left:-200%;}
+.disp_other .ma_outbox{left:-300%;}
+
+.ma_ios{left:0%;z-index:1;}
+.ma_ipad{left:100%;z-index:2;}
+.ma_android{left:200%;z-index:3;}
+.ma_other{left:300%;z-index:4;}
+.ma_header{border-bottom:1px solid #e7e7e7;}
+.header_inner{position:relative;z-index:2;width:90%;max-width:1024px;*width:1024px;height:67px;margin:0 auto;overflow:hidden;}
+	.mail_logo{float: left; width: 182px; height: 35px; margin-top: 16px;}
+	.mail_logo a{display:block;height:100%; background: url(../images/qqmail_app3/sprites_common21bd63.png) 0 0 no-repeat;}
+	.ma_nav{float: right; margin-top: 23px;display: block;}
+	.ma_nav a{margin-left: 60px; color: #4b4b4b; font-size: 18px;}
+	.ma_nav a.nav_active,
+	.ma_nav a.nav_active:hover{color: #007ec8;}
+	.ma_nav a.first-child{margin-left: 0;}
+	#nav_other{font-family:Helvetica Neue,Verdana,"Microsoft YaHei";}
+	.ma_nav a:hover{color:#6bb3dd;}
+	.nav_menu_mini{display: none;}
+	.appinfo{margin-top:95px;transition:margin-top 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);-ms-transition:margin-top 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000); -webkit-transition:margin-top 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);}
+	.ma_ios .appinfo{margin-top:110px;opacity:0;opacity:1\9;}
+	.ma_ios .appinfo_in{margin-top:95px; opacity:1;}		
+	/* ie 10 */
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){.appinfo{margin-top:155px;opacity:1;transition:none;-ms-transition:none;}}
+	.app_logo{float: left; display: inline-block;display:none; width: 120px; height: 120px; background: url(../images/qqmail_app3/applogo1cec45.png) 0 0 no-repeat; -webkit-transition:-webkit-transform 0.2s linear;}
+	.ma_android .app_logo{background-position:-160px 0;}
+	.app_infotxt{margin-left:114px;-webkit-transition:margin 0.2s linear;color:#152742;}
+	.app_slogan,
+	.app_slogan_att,
+	.app_download{font-family:"Helvetica Neue","Microsoft YaHei","SimHei";}
+	.app_slogan, 
+	.app_slogan_att{background: url(../images/qqmail_app3/ma_sprites204808.png) no-repeat;background-image:-webkit-image-set(url(../images/qqmail_app3/ma_sprites204808.png) 1x,url(../images/qqmail_app3/ma_sprites_2x204808.png) 2x);text-indent:-999em;}	
+	.app_slogan{font-size: 50px;font-weight:normal;width:270px;height:56px;background-position:0 -320px; margin-bottom:15px; -webkit-transition:font-size 0.2s linear,margin 0.4s linear; }
+	.app_slogan_att{font-size: 50px;-webkit-transition:font-size 0.2s linear; width:320px;height:56px;background-position:0 -384px;}
+	
+	.ma_ios .app_slogan, 
+	.ma_ios .app_slogan_att{width: 320px;background: url(../images/qqmail_app3/sprites_iphone32bdde.png) no-repeat;background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_iphone32bdde.png) 1x,url(../images/qqmail_app3/sprites_iphone_2x32bdde.png) 2x);}
+	.ma_ios .app_slogan{background-position:0 -78px;}
+	.ma_ios .app_slogan_att{background-position:0 -143px;}	
+	
+	.ma_ipad .app_slogan, 
+	.ma_ipad .app_slogan_att{width: 320px;text-indent:0;display:inline-block;margin-bottom:0;-webkit-transform-origin:center top;background: url(../images/qqmail_app3/sprites_ipad32bdde.png) no-repeat;background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_ipad32bdde.png) 1x,url(../images/qqmail_app3/sprites_ipad_2x32bdde.png) 2x);}
+	.ma_ipad .app_slogan{width: 352px;background-position:0 -78px;}
+	.ma_ipad .app_slogan_att{background-position:0 -143px;}
+	
+	.ma_android .app_slogan, 
+	.ma_android .app_slogan_att{width: 320px;background: url(../images/qqmail_app3/sprites_android32bdde.png) no-repeat;background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_android32bdde.png) 1x,url(../images/qqmail_app3/sprites_android_2x32bdde.png) 2x);}
+	.ma_android .app_slogan{background-position:0 -78px;}
+	.ma_android .app_slogan_att{background-position:0 -143px;}	
+	/**
+	 * 原本想用代码替换图片实现版本号的快速更新的，发现字体缩放后在IE下面会糊掉且不同电脑表现不一样，暂时先放置
+	 */
+	/*.app_version{
+		font-size:12px;position:absolute;
+		line-height:12px;
+		letter-spacing: -0.04em;
+		-moz-transform:rotateZ(-45deg) scale(0.8);
+		-webkit-transform:rotateZ(-45deg) scale(0.8);
+		-o-transform:rotateZ(-45deg) scale(0.8);
+		-ms-transform:rotateZ(-45deg) scale(0.8);
+		transform:rotateZ(-45deg) scale(0.8);
+		top:6px;left:-3px;color:#007ec8;
+		top:0px\0\9;left:-1px\0\9;
+		*top:0px;*left:-1px;
+		_top:0px;_left:-1px;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.5656854249492387, M12=0.5656854249492373, M21=-0.5656854249492373, M22=0.5656854249492387, SizingMethod='auto expand')";
+		filter: progid:DXImageTransform.Microsoft.Matrix(
+		M11=0.5656854249492387,
+		M12=0.5656854249492373,
+		M21=-0.5656854249492373,
+		M22=0.5656854249492387,
+		SizingMethod='auto expand');
+	}
+	.app_version_Two{
+		letter-spacing: 0em;
+		left:0px;top:6px;
+		top:3px\0\9;left:1px\0\9;
+		*top:3px;*left:1px;
+		_top:3px;_left:1px;
+	}
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		.app_version{
+			top:7px;left:-5px;
+		}
+		.app_version_Two{left:0px;top:6px;}
+	}*/	
+	.app_download{margin-top:10px;-webkit-transition:margin 0.4s linear;}
+	.app_download .download_ios,
+	.app_download .download_ipad,
+	.app_download .download_android{display:inline-block;width:186px;height:58px;background-repeat: no-repeat;position:relative;}
+
+	.app_download .download_ios{background-image:url(../images/qqmail_app3/sprites_iphone32bdde.png);background-position:0 0;}
+	.app_download .download_ipad{background-image:url(../images/qqmail_app3/sprites_ipad32bdde.png);background-position:0 0;}
+	.app_download .download_android{background-image:url(../images/qqmail_app3/sprites_android32bdde.png);background-position:0 0;}
+  .app_download .download_ios:hover,
+  .app_download .download_ipad:hover,
+  .app_download .download_android:hover {opacity:0.85;filter:alpha(opacity=85);}
+	
+	.app_qrcode{margin-top:20px;}
+	.app_qrimg{position:relative;width:122px;height:122px;background:url(../images/qqmail_app3/qrdownload_android1cf713.png) 0 0 no-repeat;}
+	.ma_android .app_qrimg{background-image: url(../images/qqmail_app3/qrdownload_android1cf713.png);}
+	.ma_android .app_qrimg_55{background-image: url(../images/qqmail_app3/qrdownload_android_551e70ca.png);}
+	.ma_android .app_qrimg_59{background-image: url(../images/qqmail_app3/qrdownload_android_591ea8a8.png);}
+	.ma_ipad .app_qrimg{background-image: url(../images/qqmail_app3/qrdownload_ipad1e0ba3.png);}
+	.ico_qrclose{position: absolute; right: 3px; top: 3px; width: 28px; height: 28px; display: inline-block; background: url(../images/qqmail_app3/ma_sprites204808.png) -64px -64px no-repeat;}
+	.ma_android .ico_qrclose{right: -11px; top: -11px;}
+	.app_qrcode p{width: 170px; margin-left: 15px; margin-top: 10px; font-size: 14px; line-height: 1.5;}
+	.ma_android .app_qrcode p{width:168px;margin-left:0;}
+	.download_qrcode{margin-left:35px;}
+	.app_download .download_qrcode{width:112px;}
+	.ico_appstore,
+	.ico_qrcode,
+	.ico_android,
+	.ico_applytry{background: url(../images/qqmail_app3/ma_sprites204808.png) no-repeat;}
+	.ico_appstore{width: 148px; height: 30px; display: inline-block; background-position: 0 -128px;}
+	.ico_qrcode{width: 132px; height: 30px; display: inline-block; background-position:0 -192px;}
+	.ico_android{width: 132px; height: 30px; display: inline-block; background-position:-192px -128px;}
+	.ico_applytry{ width: 132px; height: 27px; display: inline-block; background-position:-192px -192px;}
+	a.download_oldver{font-size:12px;width:auto; margin-top:15px; color:#868d93; display:block;font-family: "Helvetica Neue",Verdana;}
+	a.download_oldver:hover{text-decoration:underline;}
+	.mobile_model{float:right;width:568px;height:473px;margin-right:1px;_display:inline;-webkit-transition:opacity .4s linear, margin-right .2s linear;-o-transition: opacity .2s linear, margin-right .2s linear;-ms-transition:opacity .2s linear, margin-right .2s linear;}
+		.ma_ios .mobile_model{margin-top:17px;background:url(../images/qqmail_app3/model_iphone218926.png) no-repeat;}
+		.ma_android .mobile_model{height:461px;margin-top:29px;background:url(../images/qqmail_app3/model_android216805.png) no-repeat;}
+	.ma_appdetail {padding: 40px 0 46px;border-top:1px solid #d5dde4;border-bottom:1px solid #d5dde4;overflow:hidden;_zoom:1;}
+	.detail_box1,
+	.detail_box2,
+	.detail_box3{float:left;_display:inline;width:31.3%;*width:31.2%;_width:30%;}
+	.detail_box2{margin:0 3%;}
+	.ma_appdetail .detail_content{text-align:center;width:100%;height:226px;border:1px solid #afd5ec;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+	.ma_android .ma_appdetail .detail_content{background-color:#fff;}
+	.detail_img{width:100%;height:228px;display:inline-block;background-repeat:no-repeat;}
+	.ma_ios .detail_img,.ma_ipad .detail_img{background-image:url(../images/qqmail_app3/detail_iphone2a9db3.png);}
+	/*ipad的配图改为和iPhone一样.ma_ipad .detail_img{background-image:url(../images/qqmail_app3/detail_ipad21a612.png);}*/
+	.ma_android .detail_img{background-image:url(../images/qqmail_app3/detail_android2a9db3.png);}
+	.detail_box1 .detail_img{background-position:center 0;-webkit-transition:-webkit-transform 0.2s linear 0.1s;}
+	.detail_box2 .detail_img{background-position:center -228px;-webkit-transition:-webkit-transform 0.2s linear;}
+	.detail_box3 .detail_img{background-position:center -456px;-webkit-transition:-webkit-transform 0.2s linear 0.15s;}
+	.detail_box1 .detail_img,
+	.detail_box2 .detail_img,
+	.detail_box3 .detail_img{-webkit-transform:scale(0.89);}
+	.detail_animation1 .detail_img,
+	.detail_animation2 .detail_img,
+	.detail_animation3 .detail_img{-webkit-transform:scale(1);}
+	.ma_appdetail h3{margin:20px 0 8px;font-size:22px;color:#122842;}
+	.ma_appdetail p{font-size:12px;line-height:2;}
+	.journal{padding-top:50px;}
+	.journal h2{font-size:24px;color:#122842;margin-bottom:4px;}
+	.journal_item{border-top:1px dashed #e1e1e1;cursor:pointer;padding:16px 0;
+		-webkit-transition: background-color .15s ease-out;
+		-moz-transition: background-color .15s ease-out;
+		transition: background-color .15s ease-out;
+	}
+	.journal_item_expand{border-top:none;}
+	.journal_detail{padding-top:4px;line-height:1.6;font-size:12px;cursor:auto;cursor:text\9;}
+	.journal h3{font-size:18px;}
+	.journal_name{vertical-align:middle;color:#122842;}
+	.journal_new{color:#6db428;margin-left:10px;}
+	.journal_date{vertical-align:middle;margin-left:14px;font-size:12px;font-weight:normal;color:#868d93;}
+	.journal_list_item{margin-top:12px;}
+	.journal_item, .journal_list_item{list-style:decimal inside;}
+	.journal_item{display:none;}
+	.journal_fold:hover{background:#fcfcfc;}
+	.journal_fold .journal_detail{display:none;}
+	.journal_item_expand{display:block !important;}
+	.journal_more{color:#007ec8;margin-bottom:20px;font-size:12px;cursor:pointer;display:inline-block;}
+	
+	.ma_footer{padding:26px 0;font-size:12px;text-align:center;color:#7f878d;border-top:1px solid #d5dde4;}  
+	.ma_footer a{color: #61676c;}
+	.ma_footer a:hover{text-decoration: underline;}
+	.ico_common{background-image:url(../images/qqmail_app3/sprites_common21bd63.png);background-repeat: no-repeat;}
+	.ico_tweibo{margin-right:15px;width:16px;height:16px;display:inline-block;background-position:-112px -64px;}
+	.ico_bbs{margin-right:15px;width:20px;height:16px;display:inline-block;background-position:-176px -64px;}
+	.ico_mail{width:18px;height:16px;display:inline-block;background-position:-144px -64px;}
+	.ma_contact a:hover .ico_tweibo{background-position:-112px -80px;}
+	.ma_contact a:hover .ico_bbs{background-position:-176px -80px;}
+	.ma_contact a:hover .ico_mail{background-position:-144px -80px;}
+	.ma_footlink,
+	.ma_footer_copyright{display:inline;}
+	.ma_footer_copyright{margin-left:20px;}
+	.ma_footer_left{float:left;}
+	.ma_contact{float:right;}
+	.contact_txt{display:none;}
+.ma_other_area{padding-top: 50px; width:90%; max-width:1024px; margin:0 auto;}
+.wapmail_qrcode,.mail_agreement,.mail_other_app{}
+.ma_other_area dl{overflow: hidden; width: 480px; margin: 0 auto;}
+dl.mail_agreement{margin-bottom:20px;}
+dl.wapmail_qrcode{margin-bottom:40px;}
+.ma_other_area dd{font-size: 20px; color: #122842; margin-left: 190px; margin-top: 44px; line-height: 1.6;}
+.ma_other_area dd a{font-size: 16px; color: #007ec8;}
+.ma_other_area dt{float: left; width: 172px; height: 156px; display: inline-block; background: url(../images/qqmail_app3/other_sprites1b9c34.png) 0 0 no-repeat;}
+.mail_agreement dt{background-position:0 -160px;}
+.mail_other_app dt{background-position:0 -320px;}
+.ma_other_area dd a.wap_link{font-size: 24px;}
+.ma_other_area dd a.wechat_recev{margin-right: 30px;}
+.ma_other_area dd a:hover{opacity:0.8;filter:alpha(opacity=80);}
+.dispblock{display: block;}
+
+.opacityShow{opacity:1;filter:alpha(opacity=100);}
+.opacityHide{opacity:0;filter:alpha(opacity=0);}
+
+
+/* iPad */
+.ma_ipad .appinfo{margin-top:56px;}
+.ma_ipad .app_title{margin-bottom:30px;}
+.ma_ipad .left_area{float:left;_display:inline;margin-left:54px;margin-top:36px;}
+.ma_ipad .app_infotxt{margin-left:0;}
+.ma_ipad .app_qrimg{display:inline-block;}
+.ma_ipad .img_area{line-height:0;}
+.ma_ipad .mobile_model{width:662px;height:297px;margin-right:36px;background:url(../images/qqmail_app3/model_ipad302665.png) no-repeat;}
+@media (max-width: 1070px){
+	.ma_ipad .left_area{margin-left:50px;}
+	.ma_ipad .mobile_model{margin:0;}
+}
+@media (max-width: 1020px){
+	.ma_ipad .app_title{margin-bottom:10px;}
+	.ma_ipad .left_area{float:none;text-align:center;margin-left:0;margin-top:10px;}
+	.ma_ipad .img_area{text-align:center;}
+	.ma_ipad .mobile_model{float:none;margin:0 auto;}
+}
+@media (max-width: 772px){
+	.ma_ipad .app_slogan{width:334px;}
+}
+@media (max-width: 900px){
+	.app_infotxt{margin-left:60px;}	
+	.app_slogan,
+	.app_slogan_att{margin-bottom:2px;font-size:30px;-webkit-transform:scale(0.8);-webkit-transform-origin:0% 0%;}
+	.ma_ipad .app_slogan,
+	.ma_ipad .app_slogan_att{-webkit-transform:scale(1);-webkit-transform-origin:0% 0%;}
+	.app_slogan_att{font-size:30px;}
+	.app_download, .app_qrcode{margin-top:10px;}
+	.download_qrcode{margin-left:20px;}
+	.mobile_model{margin-right:0;}
+	.ma_nav a{margin-left:32px;}
+	.play_video_link{margin-left:12px;}
+}
+
+@media (max-width: 1000px){
+	.detail_box1,
+	.detail_box2,
+	.detail_box3{float:none;width:100%;min-width:300px;margin:0 auto 30px;}
+	.ma_appdetail h2{margin: 10px 0;}
+	.ma_contact{float:none;}
+	.ma_footer_left{float:none;}
+	.ma_footlink,
+	.ma_footer_copyright{display:block;}
+	.ma_footlink{margin:10px 0;}
+}
+/* for mobile */
+@media (max-width: 740px){
+	.header_inner{width:auto;height:auto;overflow:visible;}
+	.mail_app{overflow-x:auto;}
+	.ma_main{background-image:none;}
+	.opacityShow{opacity:0;filter:alpha(opacity=0);}
+	.ma_ios{left:0%;z-index:1;}
+	.ma_ios{left:0%;z-index:2;}
+	.ma_android{left:0%;z-index:3;}
+	.ma_other{left:0%;z-index:4;}
+	.disp_ios .ma_ipad,
+	.disp_ios .ma_android,
+	.disp_ios .ma_other,
+	.disp_ipad .ma_ios,
+	.disp_ipad .ma_android,
+	.disp_ipad .ma_other,
+	.disp_android .ma_ios,
+	.disp_android .ma_ipad,
+	.disp_android .ma_other,
+	.disp_other .ma_ios,
+	.disp_other .ma_ipad,
+	.disp_other .ma_android{display:none;}
+	.ma_outbox{-webkit-transition:none;-ms-transition:none;-moz-transition:none;transition:none;}
+	#video_container,
+	.play_video_link{display:none;}
+	.disp_ipad .ma_outbox,
+	.disp_android .ma_outbox,
+	.disp_other .ma_outbox{left:0;}
+	.ma_container{width:100%;position:static;background:none;}
+	.ma_header,
+	.ma_1stpage,
+	.ma_2ndpage,
+	.ma_footer{width:100%;}
+	.ma_header{height:70px;overflow:visible;border-bottom:1px solid #ddd;}
+    .mail_logo{margin-left:20px;margin-top:18px;}
+	.ma_nav_mini{margin-right:20px;}
+	.detail_box1,
+	.detail_box2,
+	.detail_box3{float:none;width:80%;min-width:300px;margin:0 auto 30px;}
+	.journal{padding-top:30px;padding-left:0;padding-right:0;}
+	.journal h2,
+	.journal .journal_item{padding-left:10%;padding-right:10%;}
+	.journal_more{display:block;padding-left:10%;padding-right:10%;padding-top:10px;padding-bottom:10px;}
+	.ma_appdetail{border-top:none;padding:170px 0 20px;}
+	.ma_appdetail h2{margin:10px 0 5px;}
+	.ma_appdetail p{line-height:2;}
+	.detail_box1 .detail_img,
+	.detail_box2 .detail_img,
+	.detail_box3 .detail_img{-webkit-transform:scale(1);}
+	.mobile_model{display:none;}
+	.ma_nav_mini{float:right;}
+	.ico_nav_menu{width:32px;height:32px;margin-top:19px;display:inline-block;background:url(../images/qqmail_app3/sprites_common21bd63.png) 0 -64px no-repeat;}
+	.ma_nav{position: absolute; top: 70px; width: 100%; margin-top: 0; height:0;overflow:hidden;-webkit-transition:height 0.1s linear;}
+	.show_nav{height:267px;border-bottom:1px solid #afd5ec;}
+	.hide_nav{height:0;}
+	.ma_nav a{display: block; margin:0; text-align: center; padding: 20px 0; color: #4b4b4b;background-color: #fbfcfd;}
+	.ma_nav a.nav_active{color: #007ec8;}
+	.ma_nav a#nav_iphone{border-top:1px solid #afd5ec; padding-top:30px;}
+	.ma_nav a#nav_other{ padding-bottom:30px;}
+	.app_download,
+	.ma_ipad .app_download{margin-top: 25px;}
+	a.download_qrcode{display: none;}
+	.ma_ios .appinfo,
+	.ma_ipad .appinfo,
+	.ma_android .appinfo{text-align: center; margin-top:20px; width: 100%;opacity:1;height:280px\9\0;}
+	.app_infotxt{margin-left: 0;}
+	.app_logo{display:inline-block; float: none; -webkit-transform:scale(0.8);}
+	.app_slogan,
+	.app_slogan_att,
+	.ma_ipad .app_slogan,
+	.ma_ipad .app_slogan_att,
+	.ma_ios .app_slogan,
+	.ma_ios .app_slogan_att,
+	.ma_android .app_slogan,
+	.ma_android .app_slogan_att{background:none;text-indent:0;width:auto;height:auto;}
+	.app_slogan .hide,
+	.app_slogan_att .hide{display:inline;}
+	.ma_ipad .app_slogan,
+	.ma_ipad .app_slogan_att{display:block;font-weight:normal;margin-bottom:2px;}
+	.app_slogan{font-size: 25px;font-weight:normal;margin-left:auto;margin-right:auto; margin-top: 0px;-webkit-transform:scale(1);-webkit-transform-origin:50% 50%;}
+	.app_slogan_att{font-size: 20px;margin-left:auto;margin-right:auto;-webkit-transform:scale(1);-webkit-transform-origin:50% 50%;}
+	.app_slogan_period{display:none;}
+	.app_slogan, .app_slogan_att, .app_download{font-family: "Helvetica Neue","Microsoft YaHei","SimHei";}
+	.detail_box1 .detail_img,.detail_box2 .detail_img,.detail_box3 .detail_img{-webkit-transform:scale(1);}
+	.app_qrcode{display:none;}	
+	.app_download a{font-size: 18px;}
+	.app_download{font-family:"Helvetica Neue","Microsoft YaHei","SimHei";}
+	a.download_oldver{font-size:12px;}
+	.ico_appstore{vertical-align: -8px;}
+	.ma_footlink{display: none;}
+	.ma_footer{margin-top:40px;padding:0 0 15px 0;}
+	.ma_footer_left{float:none;}
+	.ma_contact{float:none;display: -webkit-box; margin-bottom: 15px;}
+	.contact_bbs,
+	.contact_tweibo,
+	.contact_mail{-webkit-box-flex: 1; display: block; padding: 15px 0; border: solid #d5dde4;}
+	.contact_bbs{border-width: 0 1px 1px 0;}
+	.contact_tweibo{border-width: 0 1px 1px 0;}
+	.contact_mail{border-width: 0 0 1px 0;}
+	.ico_tweibo,
+	.ico_bbs,
+	.ico_mail{margin-right: 5px; vertical-align: -3px;}
+	.ico_bbs{width:20px;}
+	.contact_txt{display: inline-block;}
+	.ma_other_area{width:100%;}
+	.ma_other_area dl{width: 100%;}
+	.ma_other_area dt{float: none; display: block; margin:0 auto;}
+	.ma_other_area dd{margin-left: 0; margin-top: 0; text-align: center;}
+	.wapmail_qrcode dd{margin-top: 20px;}
+	.ma_other_area dd a.wechat_recev{margin-right:0; display:block;}
+}
+/* hack for ie*/
+.disp_ios,
+.disp_ipad,
+.disp_android,
+.disp_other{height:auto\9;}
+.ma_ios,
+.ma_ipad,
+.ma_android,
+.ma_other{left: 0%\9;}
+.disp_ios .ma_android,
+.disp_ios .ma_ipad,
+.disp_ios .ma_other,
+.disp_ipad .ma_ios,
+.disp_ipad .ma_android,
+.disp_ipad .ma_other,
+.disp_android .ma_ios,
+.disp_android .ma_ipad,
+.disp_android .ma_other,
+.disp_other .ma_ios,
+.disp_other .ma_ipad,
+.disp_other .ma_android{display:none\9;}
+.disp_ipad .ma_outbox,
+.disp_android .ma_outbox,
+.disp_other .ma_outbox {left: 0\9;}
+.ma_container{width: 100%\9;position:static\9;}
+
+/* mac retina */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2){
+.app_logo{background-image:-webkit-image-set(url(../images/qqmail_app3/applogo1cec45.png) 1x,url(../images/qqmail_app3/applogo_2x1cec45.png) 2x);}
+.ico_qrclose,
+.ico_appstore,
+.ico_qrcode,.ico_android,.ico_applytry{background-image:-webkit-image-set(url(../images/qqmail_app3/ma_sprites204808.png) 1x,url(../images/qqmail_app3/ma_sprites_2x204808.png) 2x);}
+.detail_img{background-image:-webkit-image-set(url(../images/qqmail_app3/detail_ios1cf25f.png) 1x,url(../images/qqmail_app3/detail_ios_2x1cf260.png) 2x);}
+.ma_ios .detail_img{background-image:-webkit-image-set(url(../images/qqmail_app3/detail_iphone2a9db3.png) 1x,url(../images/qqmail_app3/detail_iphone_2x2bf3c8.png) 2x);}
+.ma_ipad .detail_img{background-image:-webkit-image-set(url(../images/qqmail_app3/detail_ipad21a612.png) 1x,url(../images/qqmail_app3/detail_ipad_2x21a612.png) 2x);}
+.ma_android .detail_img{background-image:-webkit-image-set(url(../images/qqmail_app3/detail_android2a9db3.png) 1x,url(../images/qqmail_app3/detail_android_2x2a9db3.png) 2x);}
+.ma_ios .mobile_model{background-image:-webkit-image-set(url(../images/qqmail_app3/model_iphone218926.png) 1x,url(../images/qqmail_app3/model_iphone_2x218926.png) 2x);}
+.ma_android .mobile_model{background-image:-webkit-image-set(url(../images/qqmail_app3/model_android216805.png) 1x,url(../images/qqmail_app3/model_android_2x216805.png) 2x);}
+.ma_ipad .mobile_model{background-image:-webkit-image-set(url(../images/qqmail_app3/model_ipad302665.png) 1x,url(../images/qqmail_app3/model_ipad_2x302665.png) 2x);}
+.ma_other_area dt{background-image:-webkit-image-set(url(../images/qqmail_app3/other_sprites1b9c34.png) 1x,url(../images/qqmail_app3/other_sprites_2x1b9c34.png) 2x);}
+.app_qrimg{background-image:-webkit-image-set(url(../images/qqmail_app3/qrdownload_android1cf713.png) 1x,url(../images/qqmail_app3/qrdownload_android_2x1cf713.png) 2x);}
+.ma_android .app_qrimg{background-image:-webkit-image-set(url(../images/qqmail_app3/qrdownload_android1cf713.png) 1x,url(../images/qqmail_app3/qrdownload_android_2x1cf713.png) 2x);}
+.ma_android .app_qrimg_55{background-image:-webkit-image-set(url(../images/qqmail_app3/qrdownload_android_551e70ca.png) 1x,url(../images/qqmail_app3/qrdownload_android_55_2x1e70ca.png) 2x);}
+.ma_android .app_qrimg_59{background-image:-webkit-image-set(url(../images/qqmail_app3/qrdownload_android_591ea8a8.png) 1x,url(../images/qqmail_app3/qrdownload_android_59_2x1ea8a8.png) 2x);}
+.ma_ipad .app_qrimg{background-image:-webkit-image-set(url(../images/qqmail_app3/qrdownload_ipad1e0ba3.png) 1x,url(../images/qqmail_app3/qrdownload_ipad_2x1e0ba3.png) 2x);}
+
+/* new way for images */
+.ico_common,
+.mail_logo a{background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_common21bd63.png) 1x,url(../images/qqmail_app3/sprites_common_2x21bd63.png) 2x);}
+.app_download .download_ios{background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_iphone32bdde.png) 1x,url(../images/qqmail_app3/sprites_iphone_2x32bdde.png) 2x);}
+.app_download .download_ipad{background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_ipad32bdde.png) 1x,url(../images/qqmail_app3/sprites_ipad_2x32bdde.png) 2x);}
+.app_download .download_android{background-image:-webkit-image-set(url(../images/qqmail_app3/sprites_android32bdde.png) 1x,url(../images/qqmail_app3/sprites_android_2x32bdde.png) 2x);}
+
+}
