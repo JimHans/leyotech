@@ -66,24 +66,21 @@
 					<p>郑州一中高二菜鸡开发，只为提供更好的电阅体验</p>
 				</div>
 			</section>
-			<!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Mzg2OS8yMDQwNA==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
+			<div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '页面 ID', // 可选。默认为 location.href  比如我本人的就删除了
+  owner: 'JimHans',              //比如我的叫anTtutu
+  repo: 'JimHans.github.io',                 //比如我的叫anTtutu.github.io
+  oauth: {
+    client_id: '2486f61abe66c636f8b6',          //比如我的828***********
+    client_secret: '27487e84a1e8b7451668672cd3a30870c16fce19',  //比如我的49e************************
+  },
+})
+gitment.render('container')
 </script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
 		</div>
 			
 			
